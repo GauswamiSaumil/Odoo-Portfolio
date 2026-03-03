@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="view_document_file_kanban_inherited_trt_base">
+			<field name="name">ir.attachment kanban inherited trt base</field>
+			<field name="model">ir.attachment</field>
+			<field name="inherit_id" ref="mail.view_document_file_kanban" />
+			<field name="arch" type="xml">
+				<xpath expr="//div[contains(@class,'o_kanban_image_wrapper')]/img" position="attributes">
+					<attribute name="class">o_attachment_image o_kanban_previewer rounded</attribute>
+				</xpath>
+		
+				<!-- Add previewer class to non-image divs -->
+				<xpath expr="//div[contains(@class,'o_kanban_image_wrapper')]/div[contains(@class,'o_image')]"
+					   position="attributes">
+					<attribute name="class">o_image o_image_thumbnail o_kanban_previewer</attribute>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

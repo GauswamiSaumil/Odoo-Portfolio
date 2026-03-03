@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="web.Many2ManyBinaryField.attachment_preview"
+       t-inherit-mode="extension">
+        <xpath expr="//div" position="replace">
+            <div t-attf-class="o_attachment o_attachment_many2many #{ editable ? 'o_attachment_editable' : '' } #{upload ? 'o_attachment_uploading' : ''}"
+                 t-att-title="file.name">
+        
+                <div class="o_attachment_wrap">
+        
+                    <t t-set="ext" t-value="getExtension(file)"/>
+                    <t t-set="url" t-value="getUrl(file.id)"/>
+        
+                    <!-- PREVIEW TRIGGER -->
+                    <div class="o_image_box float-start o_attachment_previewer"
+                         t-on-click.stop.prevent="() => this.onPreview(file)"
+                         t-att-data-tooltip="'Preview ' + file.name">
+        
+                        <span class="o_image o_hover"
+                              t-att-data-mimetype="file.mimetype"
+                              t-att-data-ext="ext"
+                              role="img"/>
+                    </div>
+        
+                    <div class="caption">
+                        <a class="ml4"
+                           t-on-click.stop.prevent="() => this.onPreview(file)">
+                            <t t-esc="file.name"/>
+                        </a>
+                    </div>
+        
+                    <div class="caption small">
+                        <span class="ml4 small text-uppercase"><b><t t-esc="ext"/></b></span>
+                    </div>
+        
+                    <div class="o_attachment_uploaded">
+                        <i class="text-success fa fa-check"/>
+                    </div>
+        
+                    <div t-if="editable"
+                         class="o_attachment_delete"
+                         t-on-click.stop="() => this.onFileRemove(file.id)">
+                        ×
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>
