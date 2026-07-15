@@ -2,15 +2,22 @@
 
 Hi, I'm Saumil Gauswami 👋
 
-This repository is a collection of my work and projects built using Odoo ERP and providing some automation that can ease up your life.  
-It reflects my experience in developing, customizing, and implementing Odoo solutions for real-world business needs.
+A responsive portfolio of Saumil Gauswami, focused on Odoo engineering, ERP automation, migration tooling, and frontend extensions.
 
-## What This Portfolio Includes
+## Preview locally
 
-- Custom Odoo module development  
-- Business workflow implementations  
-- ERP customizations  
-- Feature enhancements  
-- Practical Odoo use cases  
+Open `index.html` directly, or run a small local server:
 
-This space represents my journey, skills, and continuous learning in Odoo development.
+```bash
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000`.
+
+## Projects
+
+- Odoo 18 Attachment Previewer
+- Odoo 15 → 17 XML-RPC migration engine
+- Odoo 16 HTML editor extension
+- Product image and PostgreSQL operation utilities
+
